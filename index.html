@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>EasyTree</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="./skin-win8/ui.easytree.css" rel="stylesheet" class="skins" type="text/css" />
+	<script src="./jquery-1.11.3.min.js"></script>
+	<script src="./jquery.easytree.min.js"></script>
+</head>
+<body>
+	<select id="themes" onchange="changeTheme()">
+		<option value="xp">XP</option>
+		<option value="win7">Win 7</option>
+		<option value="win8" selected="selected">Win 8</option>
+		<option value="lion">Lion</option>
+	</select>
+   <div id="demo1_menu">
+       <ul>
+           <li data-uiicon="ui-icon-lightbulb">First Node</li>
+           <li class="grey_background"><a href="http://www.easyjstree.com" target="_blank"><span class="red green_background">Custom classes</span></a></li>
+           <li class="isFolder isExpanded" title="Bookmarks">
+               Folder 1
+               <ul>
+                   <li><img src="/content/images/google.ico" /><a href="http://www.google.com" target="_blank">Go to Google.com</a></li>
+                   <li><img src="/content/images/yahoo.jpg" /><a href="http://www.yahoo.com" target="_blank">Go to Yahoo.com</a></li>
+               </ul>
+           </li>
+           <li class="isExpanded" data-uiicon="ui-icon-folder-collapsed">
+               Jquery icon 'ui-icon-lightbulb'
+               <ul>
+                   <li><img src="/content/images/news.png" />Custom image</li>
+                   <li data-uiicon="ui-icon-scissors">
+                       Jquery icon 'ui-icon-scissors'
+                       <ul>
+                           <li>Sub Sub Node 1</li>
+                           <li>Sub Sub Node 2</li>
+                           <li>Sub Sub Node 3</li>
+                           <li>Sub Sub Node 4</li>
+                       </ul>
+                   </li>
+                   <li>Sub Node 3</li>
+               </ul>
+           </li>
+           <li><span class="blue">Blue css style</span></li>
+       </ul>
+   </div>
+   <script>
+       $('#demo1_menu').easytree();
+       function changeTheme() {
+           var theme = $('#themes').val();
+           var stylesheet = $('.skins');
+           var href = stylesheet.attr('href');
+           stylesheet.attr('href', './skin-' + theme + '/ui.easytree.css');
+       }
+   </script>
+</body>
+</html>
